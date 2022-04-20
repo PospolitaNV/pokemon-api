@@ -1,4 +1,4 @@
-package axual.npospolita.pokemonapi.service.exception;
+package axual.npospolita.pokemonapi.exception;
 
 public class ApplicationInitializationException extends RuntimeException {
     public ApplicationInitializationException(String message) {

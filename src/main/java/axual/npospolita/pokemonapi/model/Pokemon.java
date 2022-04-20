@@ -22,19 +22,19 @@ public class Pokemon {
     @CsvBindByName(column = "Type 2")
     private String secondType;
     @CsvBindByName(column = "Total")
-    private Integer total;
+    private Double total;
     @CsvBindByName(column = "HP")
-    private Integer health;
+    private Double health;
     @CsvBindByName(column = "Attack")
-    private Integer attack;
+    private Double attack;
     @CsvBindByName(column = "Defense")
-    private Integer defense;
+    private Double defense;
     @CsvBindByName(column = "Sp. Atk")
-    private Integer specialAttack;
+    private Double specialAttack;
     @CsvBindByName(column = "Sp. Def")
-    private Integer specialDefense;
+    private Double specialDefense;
     @CsvBindByName(column = "Speed")
-    private Integer speed;
+    private Double speed;
     @CsvBindByName(column = "Generation")
     private Integer generation;
     @CsvBindByName(column = "Legendary")
@@ -55,5 +55,10 @@ public class Pokemon {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+
+    public boolean isTypeOf(String type) {
+        return Objects.equals(this.getFirstType(), type)
+        || Objects.equals(this.getSecondType(), type);
     }
 }
