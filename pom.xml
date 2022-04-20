@@ -8,11 +8,13 @@
         <version>2.6.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>axual.npospolita</groupId>
-    <artifactId>pokemon-api-gmhtvr</artifactId>
+    <artifactId>pokemon-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>pokemon-api-gmhtvr</name>
-    <description>pokemon-api-gmhtvr</description>
+    <name>pokemon-api</name>
+    <description>pokemon-api</description>
+
     <properties>
         <java.version>17</java.version>
     </properties>

@@ -7,6 +7,7 @@ import axual.npospolita.pokemonapi.service.transformation.PokemonTransformationS
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
@@ -25,10 +26,12 @@ public class PokemonDataInitializingService implements InitializingBean {
     private final PokemonTransformationService pokemonTransformationService;
     private final ResourceLoader resourceLoader;
 
+    @Value("${pokemon_data_file_path}")
+    private Resource pokemonFile;
+
     @Override
     public void afterPropertiesSet() throws Exception {
         log.info("Initializing pokemon data");
-        Resource pokemonFile = resourceLoader.getResource("classpath:pokemon.csv");
         log.info("File loaded: {}", pokemonFile);
         List<Pokemon> pokemons = pokemonParsingService.parse(pokemonFile, exclude().negate());
         log.trace("Pokemons loaded: {}", pokemons);

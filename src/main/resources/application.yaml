@@ -11,5 +11,9 @@ transformation:
     second_type: Flying
   defence:
     value: 5
-    excluded_letter: "G"
-    starts_with: "G"
+    excluded_letter: G
+    starts_with: G
+
+pokemon_data_file_path: classpath:pokemon.csv
+
+
