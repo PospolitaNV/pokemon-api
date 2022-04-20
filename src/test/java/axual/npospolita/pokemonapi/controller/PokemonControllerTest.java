@@ -17,6 +17,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * This test could be better - It could load only part of Context: repository + web layer
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
@@ -114,5 +117,46 @@ class PokemonControllerTest {
                 .andExpectAll(
                         jsonPath("$.content", iterableWithSize(2))
                 );
+    }
+
+    @Test
+    @DisplayName("Searching by single equal parameter")
+    public void simpleParamTest() throws Exception {
+        this.mockMvc.perform(get("/pokemon?size=100&"
+                                 + "hp=77"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpectAll(
+                        jsonPath("$.content", iterableWithSize(1))
+                );
+
+        this.mockMvc.perform(get("/pokemon?size=100&"
+                                 + "defense=77"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpectAll(
+                        jsonPath("$.content", iterableWithSize(1))
+                );
+
+        this.mockMvc.perform(get("/pokemon?size=100&"
+                                 + "attack=77"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpectAll(
+                        jsonPath("$.content", iterableWithSize(1))
+                );
+    }
+
+
+    @Test
+    @DisplayName("Searching without parameters")
+    public void noParamsTest() throws Exception {
+        this.mockMvc.perform(get("/pokemon"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpectAll(
+                        jsonPath("$.content", iterableWithSize(20))
+                );
+
     }
 }
