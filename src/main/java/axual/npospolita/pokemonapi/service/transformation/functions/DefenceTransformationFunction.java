@@ -4,7 +4,6 @@ import axual.npospolita.pokemonapi.model.Pokemon;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.function.UnaryOperator;
 
 @Component
@@ -31,7 +30,6 @@ public class DefenceTransformationFunction implements TransformationFunction<Pok
 
     @Override
     public boolean couldApply(Pokemon pokemon) {
-
         return pokemon.getName() != null && pokemon.getName().startsWith(startsWith);
     }
 

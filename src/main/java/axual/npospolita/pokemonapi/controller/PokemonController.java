@@ -26,6 +26,7 @@ public class PokemonController {
 
     private final PokemonRepository pokemonRepository;
 
+    // it may look messy, but it's really easy manageable
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Page<Pokemon> getPokemons(
             @And({
