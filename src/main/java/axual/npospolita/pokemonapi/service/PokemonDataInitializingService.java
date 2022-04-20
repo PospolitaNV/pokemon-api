@@ -28,7 +28,7 @@ public class PokemonDataInitializingService implements InitializingBean {
     private Resource pokemonFile;
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         log.info("Initializing pokemon data");
         log.info("File loaded: {}", pokemonFile);
         List<Pokemon> pokemons = pokemonParsingService.parse(pokemonFile, exclude().negate());
