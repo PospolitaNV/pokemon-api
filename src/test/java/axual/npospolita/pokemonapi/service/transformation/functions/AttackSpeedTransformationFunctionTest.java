@@ -31,6 +31,7 @@ class AttackSpeedTransformationFunctionTest {
         assertTrue(transformationFunction.couldApply(suitablePokemon));
         assertEquals(110.0, transformationFunction.apply(suitablePokemon).getSpeed(), 0.01);
 
+        // this pokemon can't be processed
         assertFalse(transformationFunction.couldApply(new Pokemon()));
     }
 

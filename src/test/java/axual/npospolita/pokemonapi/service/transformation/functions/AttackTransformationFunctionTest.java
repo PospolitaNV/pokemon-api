@@ -29,6 +29,7 @@ class AttackTransformationFunctionTest {
         assertTrue(transformationFunction.couldApply(suitablePokemon));
         assertEquals(90.0, transformationFunction.apply(suitablePokemon).getAttack(), 0.01);
 
+        // this pokemon can't be processed
         assertFalse(transformationFunction.couldApply(new Pokemon()));
     }
 

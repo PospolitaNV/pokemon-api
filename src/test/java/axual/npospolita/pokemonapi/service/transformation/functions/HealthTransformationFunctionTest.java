@@ -29,6 +29,7 @@ class HealthTransformationFunctionTest {
         assertTrue(transformationFunction.couldApply(suitablePokemon));
         assertEquals(200.0, transformationFunction.apply(suitablePokemon).getHealth(), 0.01);
 
+        // this pokemon can't be processed
         assertFalse(transformationFunction.couldApply(new Pokemon()));
     }
 

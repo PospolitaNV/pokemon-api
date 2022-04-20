@@ -14,14 +14,14 @@ public class DefenceTransformationFunction implements TransformationFunction<Pok
     private Double letterValue;
 
     @Value("${transformation.defence.excluded_letter}")
-    private String excludedLetter;
+    private Character excludedLetter;
 
     @Value("${transformation.defence.starts_with}")
     private String startsWith;
 
     private final UnaryOperator<Pokemon> unaryOperator = pokemon -> {
         int lettersCount = pokemon.getName()
-                .replace(excludedLetter, "")
+                .replace(excludedLetter + "", "")
                 // I assume it's not a letter, data contains spaces. Also could use regEx here
                 .replace(" ", "")
                 .length();
